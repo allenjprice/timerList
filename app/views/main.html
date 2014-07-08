@@ -1,23 +1,33 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<div class="row">
+  <h1>Welcome to Timer List</h1>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="row">
+  <p>Add an item </p>
+  <form class="form-inline" role="form">
+    <input class="form-control" type="text" ng-model="item.name" placeholder="Name">
+    <input class="form-control" type="text" ng-model="item.time" placeholder="Time">
+    <button class="btn btn-md btn-success" ng-click="submitItem()"><span class="glyphicon glyphicon-ok"></span> Add it!</button>
+    <button class="btn btn-md btn-danger" ng-click="resetItem()"><span class="glyphicon glyphicon-remove"></span> Nevermind</button>
+  </form>
+</div>
+<hr>
+  <div class="row">
+    <p>Now here is your list</p>
+    <div class="col-sm-1"><input type="checkbox"></div>
+    <div class="col-sm-3"><strong>Name</strong></div>
+    <div class="col-sm-3"><strong>Time</strong></div>
+    <div class="col-sm-1"><strong>Done?</strong></div>
+  </div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<ul class="list-unstyled">
+  <li ng-repeat="item in list"> 
+    <div class="row">
+      <div class="col-sm-1"><input type="checkbox" ng-model="item.done"></div>
+      <div class="col-sm-3">{{item.name}}</div>
+      <div class="col-sm-3">{{item.time}}</div>
+      <div class="col-sm-1">{{item.done}}</div>
+    </div>
+  </li>
+</ul>
 </div>
